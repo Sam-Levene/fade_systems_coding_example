@@ -1,0 +1,65 @@
+Part 1: Manual Testing
+Below are the manual test cases; in Scenario format (using Cucumber's Given-When-Then structure to make it concise and easy to implement):
+
+Happy Path Scenarios:
+Scenario: A user navigates to the registration form
+	Given a user is on their browser
+	When the user navigates to the website
+	Then the registration form is displayed
+
+Scenario: A user fills in the form correctly with email present
+	Given a user is on their browser
+	When the user navigates to the website
+	And the user fills in the form correctly with email present
+	Then the table is updated with email present in the information
+
+Scenario: A user fills in the form correctly with email absent
+	Given a user is on their browser
+	When the user navigates to the website
+	And the user fills in the form correctly with email absent
+	Then the table is updated with email absent in the information
+
+Scenario: A user is able to delete a form entry they previously made on the table
+	Given a user is on their browser
+	When the user navigates to the website
+	And the user fills in the form correctly with email present
+	When the user deletes their data from the table
+	Then the data is removed from the table
+
+Negative Testing Scenarios:
+Scenario: A user fills in the form incorrectly, leaving out the Name field
+	Given a user is on their browser
+	When the user navigates to the website
+	And the user fills in the form incorrectly, leaving the mandatory Name field blank
+	Then the error for the Name field is shown
+
+Scenario: A user fills in the form incorrectly, leaving out the Country field
+	Given a user is on their browser
+	When the user navigates to the website
+	And the user fills in the form incorrectly, leaving the mandatory Country field blank
+	Then the error for the Country field is shown
+
+Scenario: A user fills in the form incorrectly, entering an invalid email address
+	Given a user is on their browser
+	When the user navigates to the website
+	And the user fills in the form incorrectly, entering an invalid email address
+	Then the error for the Email field is shown
+
+Scenario: A user fills in the form incorrectly, trying a country that doesn't exist
+	Given a user is on their browser
+	When the user navigates to the website
+	And the user fills in the form incorrectly, trying to submit a country that doesn't exist
+	Then the field informs the user that no options are available
+
+Penetration Testing Scenarios:
+Scenario: A user fills in the form incorrectly, entering a username that tries to inject SQL
+	Given a user is on their browser
+	When the user navigates to the website
+	And the user fills in the form incorrectly, entering a username that tries to inject SQL
+	Then the error for the Email field is shown
+
+Scenario: A user fills in the form incorrectly, entering a username that tries to use XSS
+	Given a user is on their browser
+	When the user navigates to the website
+	And the user fills in the form incorrectly, entering a username that tries to use XSS
+	Then the error for the Email field is shown
