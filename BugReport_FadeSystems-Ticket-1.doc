@@ -1,0 +1,24 @@
+Bug Report: Defect for Scenario around deleting entries from the table.
+System: Microsoft Windows 11
+Browser: Google Chrome / Opera / Firefox / Microsoft Edge
+Description: When testing the http://fade-qa-test.s3-website-eu-west-1.amazonaws.com/ website; using the scenarios outlined in the brief; I encountered an issue with this scenario where there is no way to delete an entry from the table of registered users once a user has been added.
+Scenario: Scenario 4: A user is able to delete a form entry they previously made on the table
+Given a user is on their browser
+When the user navigates to the website
+And the user fills in the form correctly with email present
+When the user deletes their data from the table
+Then the data is removed from the table
+
+Steps taken:
+1. Navigate to the website http://fade-qa-test.s3-website-eu-west-1.amazonaws.com/
+2. Fill in the form with valid user details and click on the Register button
+3. Attempt to delete the entry by clicking on the delete button in the row
+
+Expected Outcome:
+Delete button exists and upon clicking the button; the entry should be deleted
+
+Actual Outcome:
+No delete button exists in the row; therefore the entry cannot be deleted.
+
+Screenshot:
+
